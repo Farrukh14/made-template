@@ -1,0 +1,95 @@
+pipeline tempreturs{
+
+http_extractor  -> read_CSV -> Transformer -> CSV_Interpreter;
+
+CSV_Interpreter
+-> header_01
+-> header_02
+-> table_Headers
+-> Cel_Fahr_Conv
+-> Cel_Fahr_Conv2
+-> DatabaseWriter;
+
+ block http_extractor oftype GTFSExtractor {
+        url:"https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip";
+    }
+
+
+block Transformer oftype TextFileInterpreter{
+    encoding: "utf8";
+}
+
+block read_CSV oftype FilePicker {
+   path: "/data.csv";
+ }
+
+
+block CSV_Interpreter oftype CSVInterpreter{
+        delimiter:";";
+}
+
+block header_02 oftype CellWriter {
+        at: cell J1;
+        write: ['battery_temperature'];
+    }
+
+
+block header_01 oftype CellWriter {
+        at: range A1:E1;
+        write: ['id','producer','model','month','temperature'];
+    }
+
+block table_Headers oftype TableInterpreter{
+        header: true;
+        columns:[
+            "id" oftype positiveInt,
+            "producer" oftype text,
+            "model" oftype text,
+            "month" oftype integer,
+            "temperature" oftype decimal,
+            "battery_temperature" oftype decimal
+        ];
+    
+    }
+
+
+    block Cel_Fahr_Conv2 oftype TableTransformer {
+        inputColumns: ['battery_temperature'];
+        outputColumn: 'battery_temperature';
+        use: CelsiusToFahrenheit;
+    }
+
+
+ block Cel_Fahr_Conv oftype TableTransformer {
+        inputColumns: ['temperature'];
+        outputColumn: 'temperature';
+        use: CelsiusToFahrenheit;
+    }
+
+ transform CelsiusToFahrenheit {
+   from Celsius oftype decimal;
+   to Fahrenheit oftype decimal;
+
+   Fahrenheit: (Celsius * 9/5) + 32;
+ }
+
+
+
+block DatabaseWriter oftype SQLiteLoader{
+        table:"temperatures";
+        file:"./temperatures.sqlite";
+    }
+
+
+
+ constraint c_postivenum on integer:
+    value >= 0;   
+
+
+valuetype positiveInt oftype integer{
+        constraints: [
+            c_postivenum
+        ];
+    }
+
+}
