@@ -25,8 +25,8 @@ jobs:
         pip install sqlalchemy pandas numpy
 
     - name: Make tests.sh executable
-      run: chmod +x ./project/tests.sh
+      run: chmod +x ./project/test.sh
     
     - name: Test with test-files
       run: |
-        ./project/tests.sh
+        ./project/test.sh
