@@ -27,7 +27,7 @@ This project examines how rural and urban population sizes correlate with CO2 em
 * Data URL: https://www.kaggle.com/datasets/chitrakumari25/smart-agricultural-production-optimizing-engine
 * Data Type: CSV
 
-I am using these two data sources from Kaggle, which is related to the agriculture sector and emission of CO2. Both datasets are free and easily available on Kaggle
+I'm utilizing two Kaggle datasets related to agriculture and CO2 emissions. The smart agriculture dataset is chosen because as population grows, it affects every sector of agriculture. Traditional production techniques significantly contribute to CO2 emissions. 
 
 ## Work Packages
 
