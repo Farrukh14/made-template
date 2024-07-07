@@ -36,7 +36,10 @@ I am using these two data sources from Kaggle, which is related to the agricultu
 
 1. Searching for suitable datasources [#1][i1]
 2. Writing Initial Project Plan [#2]
-3. Extracting Data [#3]
-4. Transformation [#4]
+3. Extract, Transform, Load [#3]
+4. Implement automated pipeline [#4]
+5. Implement automated testing 
+6. Exploratory data analysis
+7. Reporting
 
 [i1]: https://github.com/jvalue/made-template/issues/1
