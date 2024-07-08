@@ -33,12 +33,12 @@ I'm utilizing two Kaggle datasets related to agriculture and CO2 emissions. The 
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. Searching for suitable datasources [#1][i1]
-2. Writing Initial Project Plan [#2]
-3. Extract, Transform, Load [#3]
-4. Implement automated pipeline [#4]
-5. Implement automated testing 
-6. Exploratory data analysis
-7. Reporting
+1. Searching for suitable datasources [[#122](https://github.com/jvalue/made-template/issues/122)]
+2. Writing Initial Project Plan [[#130](https://github.com/jvalue/made-template/issues/130)]
+3. Extract, Transform, Load [[#123](https://github.com/jvalue/made-template/issues/123)],[[#124](https://github.com/jvalue/made-template/issues/124)]
+4. Implement automated pipeline [[#127](https://github.com/jvalue/made-template/issues/127)]
+5. Implement automated testing [[#126](https://github.com/jvalue/made-template/issues/126)]
+6. Exploratory data analysis [[#128](https://github.com/jvalue/made-template/issues/128)]
+7. Reporting [[#129](https://github.com/jvalue/made-template/issues/129)]
 
 [i1]: https://github.com/jvalue/made-template/issues/1
